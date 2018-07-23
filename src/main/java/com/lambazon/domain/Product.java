@@ -53,7 +53,13 @@ public class Product {
 	}
 
 	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+		//set 0 as quantity if set quantity is negative
+		if(quantity < 0) {
+			quantity = 0;
+		}
+		else {
+			this.quantity = quantity;
+		}
 	}
 
 	public double getPrice() {
@@ -61,6 +67,9 @@ public class Product {
 	}
 
 	public void setPrice(double price) {
+		// controls added for negative prices or prices superior to 1000
+		if(price < 0)price = 0;
+		if (price > 1000)price = 1000;
 		this.price = price;
 	}
 
